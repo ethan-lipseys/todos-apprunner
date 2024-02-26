@@ -15,7 +15,7 @@ var sampleTodos = new Todo[] {
     new(3, "Do the laundry", DateOnly.FromDateTime(DateTime.Now.AddDays(1))),
     new(4, "Clean the bathroom"),
     new(5, "Clean the car", DateOnly.FromDateTime(DateTime.Now.AddDays(2))),
-    new(6, "New Todo", DateOnly.FromDateTime(DateTime.Now.AddDays(2))),
+    new(6, "New Todoo", DateOnly.FromDateTime(DateTime.Now.AddDays(2))),
 };
 
 var todosApi = app.MapGroup("/todos");
