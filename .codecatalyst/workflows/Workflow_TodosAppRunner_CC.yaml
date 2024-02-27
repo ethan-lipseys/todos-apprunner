@@ -26,6 +26,7 @@ Actions:
     Configuration:
       RepositoryName: todos-apprunner-cc
       AWSRegion: us-east-1
+      ImageTag: latest
       PublicRepository: false
       ImageScanningConfiguration: false
   DeployToAWSAppRunner_68:
