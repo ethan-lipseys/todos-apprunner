@@ -1,0 +1,51 @@
+﻿Name: Workflow_f5e7
+SchemaVersion: "1.0"
+
+# Optional - Set automatic triggers.
+Triggers:
+  - Type: PUSH
+    Branches:
+      - main
+Actions:
+  PushToAmazonECR_cf:
+    # Identifies the action. Do not modify this value.
+    Identifier: codecatalyst-labs/push-to-ecr@v1.0.3
+    # Required; You can use an environment, AWS account connection, and role to access AWS resources.
+    Environment:
+      Connections:
+        - Role: CodeCatalystWorkflowDevelopmentRole-ethanhogandevTestingSpace
+          Name: "594989874014"
+      Name: todos-apprunner-production
+    # Specifies the source and/or artifacts to pass to the action as input.
+    Inputs:
+      # Optional
+      Sources:
+        - WorkflowSource # This specifies that the action requires this Workflow as a source
+    Compute:
+      Type: EC2
+    Configuration:
+      RepositoryName: todos-apprunner-cc
+      AWSRegion: us-east-1
+      ImageTag: latest
+      PublicRepository: false
+      ImageScanningConfiguration: false
+  DeployToAWSAppRunner_68:
+    # Identifies the action. Do not modify this value.
+    Identifier: codecatalyst-labs/deploy-to-app-runner@v1.0.3
+    # Required; You can use an environment, AWS account connection, and role to access AWS resources.
+    Environment:
+      Connections:
+        - Role: CodeCatalystWorkflowDevelopmentRole-ethanhogandevTestingSpace
+          Name: "594989874014"
+      Name: todos-apprunner-production
+    Compute:
+      Type: Lambda
+    Configuration:
+      Tags: "[production]"
+      Wait: false
+      ServiceArn: arn:aws:apprunner:us-east-1:594989874014:service/TodosAppRunnerCC/f37f10e259794e50b7b5ccd21c45911f
+      AWSRegion: us-east-1
+      Port: 8080
+      ImageIdentifier: 594989874014.dkr.ecr.us-east-1.amazonaws.com/todos-apprunner-cc:latest
+    DependsOn:
+      - PushToAmazonECR_cf
