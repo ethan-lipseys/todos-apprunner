@@ -39,11 +39,11 @@ Actions:
       Name: todos-apprunner-production
     Compute:
       Type: Lambda
-      Fleet: Linux.x86-64.Large
     Configuration:
       Tags: "[production]"
       Wait: true
       AWSRegion: us-east-1
       Port: 8080
+      ImageIdentifier: 594989874014.dkr.ecr.us-east-1.amazonaws.com/todos-apprunner-cc:latest
     DependsOn:
       - PushToAmazonECR_cf
