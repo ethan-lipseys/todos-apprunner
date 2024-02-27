@@ -1,4 +1,5 @@
-﻿version: 0.2
+﻿# Used by AWS CodeBuild to build and push the Docker image to Amazon ECR
+version: 0.2
 
 phases:
   pre_build:

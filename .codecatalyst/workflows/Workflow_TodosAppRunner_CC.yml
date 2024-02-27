@@ -1,4 +1,5 @@
-﻿Name: Workflow_f5e7
+﻿# Used by AWS Code Catalyst as the pipeline configuration for the workflow
+Name: Workflow_f5e7
 SchemaVersion: "1.0"
 
 # Optional - Set automatic triggers.
