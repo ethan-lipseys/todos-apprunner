@@ -25,6 +25,7 @@ Actions:
       Type: Lambda # Defines the action's properties.
     Configuration:
       RepositoryName: todos-apprunner-cc
+      AWSRegion: us-east-1
       PublicRepository: false
       ImageScanningConfiguration: false
   DeployToAWSAppRunner_68:
