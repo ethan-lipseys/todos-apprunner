@@ -22,7 +22,7 @@ Actions:
       Sources:
         - WorkflowSource # This specifies that the action requires this Workflow as a source
     Compute:
-      Type: Lambda # Defines the action's properties.
+      Type: EC2
     Configuration:
       RepositoryName: todos-apprunner-cc
       AWSRegion: us-east-1
