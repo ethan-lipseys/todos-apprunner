@@ -22,9 +22,11 @@ Actions:
       Sources:
         - WorkflowSource # This specifies that the action requires this Workflow as a source
     Compute:
-      Type: Lambda # Defines the action's properties.
+      Type: EC2
     Configuration:
       RepositoryName: todos-apprunner-cc
+      AWSRegion: us-east-1
+      ImageTag: latest
       PublicRepository: false
       ImageScanningConfiguration: false
   DeployToAWSAppRunner_68:
@@ -38,11 +40,12 @@ Actions:
       Name: todos-apprunner-production
     Compute:
       Type: Lambda
-      Fleet: Linux.x86-64.Large
     Configuration:
       Tags: "[production]"
-      Wait: true
+      Wait: false
+      ServiceArn: arn:aws:apprunner:us-east-1:594989874014:service/TodosAppRunnerCC/f37f10e259794e50b7b5ccd21c45911f
       AWSRegion: us-east-1
       Port: 8080
+      ImageIdentifier: 594989874014.dkr.ecr.us-east-1.amazonaws.com/todos-apprunner-cc:latest
     DependsOn:
       - PushToAmazonECR_cf
