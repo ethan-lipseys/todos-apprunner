@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include=".codecatalyst\workflows\Workflow_TodosAppRunner_CC.yaml" />
+    <None Include=".codecatalyst\workflows\Workflow_TodosAppRunner_CC.yml" />
   </ItemGroup>
 
   <ItemGroup>
