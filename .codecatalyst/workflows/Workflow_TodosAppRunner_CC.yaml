@@ -42,7 +42,8 @@ Actions:
       Type: Lambda
     Configuration:
       Tags: "[production]"
-      Wait: true
+      Wait: false
+      ServiceArn: arn:aws:apprunner:us-east-1:594989874014:service/TodosAppRunnerCC/f37f10e259794e50b7b5ccd21c45911f
       AWSRegion: us-east-1
       Port: 8080
       ImageIdentifier: 594989874014.dkr.ecr.us-east-1.amazonaws.com/todos-apprunner-cc:latest
